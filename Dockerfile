@@ -2,7 +2,7 @@
 FROM ubuntu:16.04
 
 # install operating system packages 
-RUN apt-get update -y &&  apt-get install git curl gettext unzip wget software-properties-common python python-software-properties dnsutils make -y 
+RUN apt-get update -y &&  apt-get install git curl gettext unzip wget software-properties-common python python-software-properties python-pip python3-pip dnsutils make -y 
 
 ## add more packages, if necessary
 # install Java8
