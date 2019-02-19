@@ -31,7 +31,7 @@ RUN unzip /tmp/livy.zip -d /opt/
 RUN mkdir /opt/livy-0.5.0-incubating-bin/logs
 
 # apache spark
-RUN wget http://apache.lauf-forum.at/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz -O /tmp/spark-2.3.1-bin-hadoop2.7.tgz
+RUN wget https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz -O /tmp/spark-2.3.1-bin-hadoop2.7.tgz
 RUN  tar -xvzf /tmp/spark-2.3.1-bin-hadoop2.7.tgz -C /opt/
 
  

@@ -13,7 +13,7 @@ GLOBAL_VAR="xyz"
 # validate if all container variables are set
 ##############################################################################
 function validate(){
-    vars="SPARK_MASTER_ENDPOINT SPARK_MASTER_PORT"
+    vars="SPARK_MASTER_ENDPOINT SPARK_MASTER_PORT DEPLOY_MODE"
     for var in $vars; do
         if [[ $(env | awk -F "=" '{print $1}' | grep "^$var$") != "$var" ]]; then
             echo "$var not set but required."
@@ -33,6 +33,7 @@ function writeConfigOptions(){
     echo "write config options"
     export SPARK_MASTER_ENDPOINT=$SPARK_MASTER_ENDPOINT
     export SPARK_MASTER_PORT=$SPARK_MASTER_PORT
+    export DEPLOY_MODE=$DEPLOY_MODE
         
     cat /opt/docker-conf/livy.conf | envsubst > /opt/livy-0.5.0-incubating-bin/conf/livy.conf
 }
