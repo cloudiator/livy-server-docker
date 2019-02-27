@@ -34,6 +34,11 @@ RUN mkdir /opt/livy-0.5.0-incubating-bin/logs
 RUN wget https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz -O /tmp/spark-2.3.1-bin-hadoop2.7.tgz
 RUN  tar -xvzf /tmp/spark-2.3.1-bin-hadoop2.7.tgz -C /opt/
 
+# set Python3 as default
+RUN rm  /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+
  
 # expose ports
 EXPOSE 8998
