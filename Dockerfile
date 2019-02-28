@@ -8,6 +8,9 @@ RUN apt-get update -y &&  apt-get install git curl gettext unzip wget software-p
 # install Java8
 RUN add-apt-repository ppa:webupd8team/java -y && apt-get update && apt-get -y install openjdk-8-jdk-headless
 
+# install boto3 library for PySpark applications to connect to S3
+RUN pip install boto3==1.9
+
 
 # use bpkg to handle complex bash entrypoints
 RUN curl -Lo- "https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh" | bash

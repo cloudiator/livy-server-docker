@@ -4,6 +4,20 @@ Based on the latest release of the [Apache Livy project](https://livy.incubator.
 
 
 
+
+
+------
+
+### Supported Versions:
+
+Livy-Server: 0.5.0
+
+Apache Spark: 2.3.1
+
+Python: Python3 (including boto3 1.9)
+
+
+
 ------
 
 ### Configuration
@@ -12,6 +26,7 @@ Required environment variables:
 
 - SPARK_MASTER_ENDPOINT => Spark Master IP
 - SPARK_MASTER_PORT => Spark Master Port
+- DEPLOY_MODE => *client* for PySpark applications and preferably *cluster* for Java/Scala applications 
 
 Per default the /tmp folder is configured as path for submitting local files via Livy Server
 
