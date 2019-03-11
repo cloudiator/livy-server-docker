@@ -4,8 +4,6 @@ Based on the latest release of the [Apache Livy project](https://livy.incubator.
 
 
 
-
-
 ------
 
 ### Supported Versions:
