@@ -28,14 +28,14 @@ RUN mkdir /var/apache-spark-binaries/
 
 # binaries
 # apache livy
-RUN wget http://mirror.23media.de/apache/incubator/livy/0.5.0-incubating/livy-0.5.0-incubating-bin.zip -O /tmp/livy.zip
+RUN wget http://mirror.23media.de/apache/incubator/livy/0.6.0-incubating/livy-0.6.0-incubating-bin.zip -O /tmp/livy.zip
 RUN unzip /tmp/livy.zip -d /opt/
 # Logging dir
-RUN mkdir /opt/livy-0.5.0-incubating-bin/logs
+RUN mkdir /opt/livy-0.6.0-incubating-bin/logs
 
 # apache spark
-RUN wget https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz -O /tmp/spark-2.3.1-bin-hadoop2.7.tgz
-RUN  tar -xvzf /tmp/spark-2.3.1-bin-hadoop2.7.tgz -C /opt/
+RUN wget https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz -O /tmp/spark-2.4.4-bin-hadoop2.7.tgz
+RUN  tar -xvzf /tmp/spark-2.4.4-bin-hadoop2.7.tgz -C /opt/
 
 # set Python3 as default
 RUN rm  /usr/bin/python
