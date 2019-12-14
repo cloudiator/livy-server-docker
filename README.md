@@ -10,9 +10,9 @@ Based on the latest release of the [Apache Livy project](https://livy.incubator.
 
 ### Supported Versions:
 
-Livy-Server: 0.5.0
+Livy-Server: 0.6.0
 
-Apache Spark: 2.3.1
+Apache Spark: 2.4.4
 
 Python: Python3 (including boto3 1.9)
 
@@ -37,6 +37,6 @@ Livy Server start on default port 8998
 ### Usage:
 
 ```bash
-docker run -d -p 8998:8998 -e SPARK_MASTER_ENDPOINT=1.2.3.4 -e SPARK_MASTER_PORT=7077 -v /tmp:/tmp cloudiator/livy-server-docker:latest
+docker run -d -p 8998:8998 -e SPARK_MASTER_ENDPOINT=1.2.3.4 -e SPARK_MASTER_PORT=7077 -v /tmp:/tmp cloudiator/livy-server:latest
 ```
 
