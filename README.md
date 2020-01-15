@@ -35,6 +35,8 @@ Livy Server start on default port 8998
 ### Usage:
 
 ```bash
-docker run -d -p 8998:8998 -e SPARK_MASTER_ENDPOINT=1.2.3.4 -e SPARK_MASTER_PORT=7077 -v /tmp:/tmp cloudiator/livy-server-docker:latest
+docker run -d -p 8998:8998 -e SPARK_MASTER_ENDPOINT=1.2.3.4 -e SPARK_MASTER_PORT=7077 -v /tmp:/tmp cloudiator/livy-server:latest
 ```
+
+
 

@@ -13,6 +13,8 @@ RUN pip install boto3==1.9
 
 
 # use bpkg to handle complex bash entrypoints
+# setting this env explicitly is required to get the bpkg install script working 
+ENV USER=root
 RUN curl -Lo- "https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh" | bash
 RUN bpkg install cha87de/bashutil -g
 ## add more bash dependencies, if necessary 
