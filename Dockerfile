@@ -1,8 +1,7 @@
 # select operating system
 FROM alpine
 
-# install operating system packages 
-RUN apk add unzip wget curl git bash openjdk8 gettext make coreutils procps && apk update
+# install operating system packages
 
 # add config, init and source files 
 # entrypoint
@@ -10,13 +9,13 @@ ADD init /opt/docker-init
 ADD conf /opt/docker-conf
 
 # folders
-RUN mkdir /opt/apache-livy \
-    && mkdir /var/apache-spark-binaries/ \
+RUN apk add unzip wget curl git bash openjdk8 gettext make coreutils procps \
+    && apk update \
     && wget https://www-eu.apache.org/dist/incubator/livy/0.6.0-incubating/apache-livy-0.6.0-incubating-bin.zip -O /tmp/livy.zip \
+    && wget https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz -O /tmp/spark.tgz \
     && unzip /tmp/livy.zip -d /opt/ \
-    && mkdir /opt/apache-livy-0.6.0-incubating-bin/logs \
-    && wget https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz -O /tmp/spark-2.4.4-bin-hadoop2.7.tgz \
-    && tar -xvzf /tmp/spark-2.4.4-bin-hadoop2.7.tgz -C /opt/ \
+    && tar -xvzf /tmp/spark.tgz -C /opt/ \
+    && wget https://jdbc.postgresql.org/download/postgresql-42.2.10.jar -P /opt/apache-livy-0.6.0-incubating-bin/jars \
     && git clone https://github.com/cha87de/bashutil.git
 
 # expose ports
