@@ -7,7 +7,6 @@ source /bashutil/bgowait
 
 [[ -z "${LIVY_EXECUTION_MODE}" ]] && mode='local' || mode="${LIVY_EXECUTION_MODE}"
 
-
 ##############################################################################
 # validate if all container variables are set
 ##############################################################################
@@ -22,10 +21,6 @@ function validate(){
             return 1
         fi
     done
-    if [[ -z ${GLOBAL_VAR+x} ]]; then
-        echo "GLOBAL_VAR variable cannot be looked up."
-        return 1
-    fi
   else
     echo -e "Unsupported value $LIVY_EXECUTION_MODE"
     return 1

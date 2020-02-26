@@ -15,7 +15,7 @@ RUN apk add unzip wget curl git bash openjdk8 gettext make coreutils procps \
     && wget https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz -O /tmp/spark.tgz \
     && unzip /tmp/livy.zip -d /opt/ \
     && tar -xvzf /tmp/spark.tgz -C /opt/ \
-    && wget https://jdbc.postgresql.org/download/postgresql-42.2.10.jar -P /opt/apache-livy-0.6.0-incubating-bin/jars \
+    && wget https://jdbc.postgresql.org/download/postgresql-42.2.10.jar -P /opt/spark-2.4.4-bin-hadoop2.7/jars \
     && git clone https://github.com/cha87de/bashutil.git
 
 # expose ports
