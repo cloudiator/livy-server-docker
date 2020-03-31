@@ -61,7 +61,7 @@ function init(){
 
 function livy_server_service(){
 
-    export SPARK_HOME=/opt/spark-2.4.4-bin-hadoop2.7/
+    export SPARK_HOME=/opt/spark-2.4.3-bin-hadoop2.7/
     echo "starting Livy Server!"
     /opt/apache-livy-0.6.0-incubating-bin/bin/livy-server start
 
