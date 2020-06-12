@@ -12,6 +12,8 @@ ADD conf /opt/docker-conf
 RUN apk add unzip wget curl git bash openjdk8 gettext make coreutils procps \
     && apk update \
     && wget https://www-eu.apache.org/dist/incubator/livy/0.7.0-incubating/apache-livy-0.7.0-incubating-bin.zip -O /tmp/livy.zip \
+    && apk add --no-cache libc6-compat \
+    && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \
     && wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz -O /tmp/spark.tgz \
     && unzip /tmp/livy.zip -d /opt/ \
     && tar -xvzf /tmp/spark.tgz -C /opt/ \
