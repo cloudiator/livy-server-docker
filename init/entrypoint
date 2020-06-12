@@ -37,7 +37,7 @@ function writeConfigOptions(){
     export SPARK_MASTER_PORT=$SPARK_MASTER_PORT
     export DEPLOY_MODE=$DEPLOY_MODE
 
-    cat /opt/docker-conf/livy.conf | envsubst > /opt/apache-livy-0.6.0-incubating-bin/conf/livy.conf
+    cat /opt/docker-conf/livy.conf | envsubst > /opt/apache-livy-0.7.0-incubating-bin/conf/livy.conf
   fi
 }
 
@@ -61,9 +61,9 @@ function init(){
 
 function livy_server_service(){
 
-    export SPARK_HOME=/opt/spark-2.4.3-bin-hadoop2.7/
+    export SPARK_HOME=/opt/spark-2.4.4-bin-hadoop2.7/
     echo "starting Livy Server!"
-    /opt/apache-livy-0.6.0-incubating-bin/bin/livy-server start
+    /opt/apache-livy-0.7.0-incubating-bin/bin/livy-server start
 
     # whatever blocking call 
     tail -f /dev/null
