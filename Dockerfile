@@ -47,6 +47,8 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # install R
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install r-base-dev -y 
 
+# make jars directory (from livy.conf)
+RUN mkdir /jars
  
 # expose ports
 EXPOSE 8998
