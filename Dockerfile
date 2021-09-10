@@ -1,6 +1,9 @@
 # select operating system
 FROM ubuntu:16.04
 
+ENV SPARK_VERSION=spark-3.1.1-bin-hadoop3.2
+ENV LIVY_VERSION=apache-livy-0.7.1-incubating-bin
+
 # install operating system packages 
 RUN apt-get update -y &&  apt-get install git curl gettext unzip wget software-properties-common python python-software-properties python-pip python3-pip dnsutils make -y 
 
