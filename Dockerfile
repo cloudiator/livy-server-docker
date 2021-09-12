@@ -30,7 +30,7 @@ RUN mkdir /var/apache-spark-binaries/
 
 # binaries
 # apache livy
-RUN wget https://apache.mirrors.tworzy.net/incubator/livy/0.7.1-incubating/apache-0.7.1-incubating-bin.zip -O /tmp/livy.zip
+RUN wget https://apache.mirrors.tworzy.net/incubator/livy/0.7.1-incubating/apache-livy-0.7.1-incubating-bin.zip -O /tmp/livy.zip
 RUN unzip /tmp/livy.zip -d /opt/ && mv /opt/apache-livy-0.7.1-incubating-bin /opt/livy
 
 # Logging dir
