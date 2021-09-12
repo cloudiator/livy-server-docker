@@ -1,9 +1,6 @@
 # select operating system
 FROM ubuntu:16.04
 
-ENV SPARK_VERSION=spark-3.1.1-bin-hadoop3.2
-ENV LIVY_VERSION=apache-livy-0.7.1-incubating-bin
-
 # install operating system packages 
 RUN apt-get update -y &&  apt-get install git curl gettext unzip wget software-properties-common python python-software-properties python-pip python3-pip dnsutils make -y 
 
@@ -33,17 +30,17 @@ RUN mkdir /var/apache-spark-binaries/
 
 # binaries
 # apache livy
-RUN wget https://apache.mirrors.tworzy.net/incubator/livy/0.7.1-incubating/apache-livy-0.7.1-incubating-bin.zip -O /tmp/livy.zip
+RUN wget https://apache.mirrors.tworzy.net/incubator/livy/0.7.1-incubating/apache-0.7.1-incubating-bin.zip -O /tmp/livy.zip
 RUN unzip /tmp/livy.zip -d /opt/ && mv /opt/apache-livy-0.7.1-incubating-bin /opt/livy
 
 # Logging dir
 RUN mkdir /opt/livy/logs
 
 # apache spark
-RUN wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz -O /tmp/spark-3.1.1-bin-hadoop3.2.tgz
-#RUN wget https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz -O /tmp/spark-2.4.8-bin-hadoop2.7.tgz
-RUN  tar -xvzf /tmp/spark-3.1.1-bin-hadoop3.2.tgz -C /opt/ && mv /opt/spark-3.1.1-bin-hadoop3.2 /opt/spark
-#RUN  tar -xvzf /tmp/spark-2.4.8-bin-hadoop2.7.tgz -C /opt/ && mv /opt/spark-2.4.8-bin-hadoop2.7 /opt/spark
+#RUN wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz -O /tmp/spark-3.1.1-bin-hadoop3.2.tgz
+RUN wget https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz -O /tmp/spark-2.4.8-bin-hadoop2.7.tgz
+#RUN  tar -xvzf /tmp/spark-3.1.1-bin-hadoop3.2.tgz -C /opt/ && mv /opt/spark-3.1.1-bin-hadoop3.2 /opt/spark
+RUN  tar -xvzf /tmp/spark-2.4.8-bin-hadoop2.7.tgz -C /opt/ && mv /opt/spark-2.4.8-bin-hadoop2.7 /opt/spark
 
 # set Python3 as default
 RUN rm  /usr/bin/python
