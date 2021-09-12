@@ -30,20 +30,27 @@ RUN mkdir /var/apache-spark-binaries/
 
 # binaries
 # apache livy
-RUN wget http://mirror.23media.de/apache/incubator/livy/0.5.0-incubating/livy-0.5.0-incubating-bin.zip -O /tmp/livy.zip
-RUN unzip /tmp/livy.zip -d /opt/
+RUN wget https://apache.mirrors.tworzy.net/incubator/livy/0.7.1-incubating/apache-livy-0.7.1-incubating-bin.zip -O /tmp/livy.zip
+RUN unzip /tmp/livy.zip -d /opt/ && mv /opt/apache-livy-0.7.1-incubating-bin /opt/livy
+
 # Logging dir
-RUN mkdir /opt/livy-0.5.0-incubating-bin/logs
+RUN mkdir /opt/livy/logs
 
 # apache spark
-RUN wget https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz -O /tmp/spark-2.3.1-bin-hadoop2.7.tgz
-RUN  tar -xvzf /tmp/spark-2.3.1-bin-hadoop2.7.tgz -C /opt/
+#RUN wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz -O /tmp/spark-3.1.1-bin-hadoop3.2.tgz
+RUN wget https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz -O /tmp/spark-2.4.8-bin-hadoop2.7.tgz
+#RUN  tar -xvzf /tmp/spark-3.1.1-bin-hadoop3.2.tgz -C /opt/ && mv /opt/spark-3.1.1-bin-hadoop3.2 /opt/spark
+RUN  tar -xvzf /tmp/spark-2.4.8-bin-hadoop2.7.tgz -C /opt/ && mv /opt/spark-2.4.8-bin-hadoop2.7 /opt/spark
 
 # set Python3 as default
 RUN rm  /usr/bin/python
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
+# install R
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install r-base-dev -y 
 
+# make jars directory (from livy.conf)
+RUN mkdir /jars
  
 # expose ports
 EXPOSE 8998
